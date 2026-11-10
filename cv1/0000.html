@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المستشار م. إبراهيم حسين | السيرة الذاتية الرقمية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Changa:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-black: #030605;
+            --panel-bg: #080f0c;
+            --accent-green: #00ff66;
+            --glow-green: rgba(0, 255, 102, 0.4);
+            --dark-border: #0f2d1e;
+            --text-white: #f0fdf4;
+            --text-muted: #839d8e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Changa', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 255, 102, 0.08) 0%, transparent 60%),
+                linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 102, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+        }
+
+        .system-bar {
+            background: rgba(8, 15, 12, 0.9);
+            border-bottom: 1px solid var(--accent-green);
+            padding: 0.4rem 1.5rem;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--accent-green);
+            box-shadow: 0 0 10px var(--glow-green);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            margin-left: 6px;
+            margin-right: 6px;
+            box-shadow: 0 0 8px var(--accent-green);
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .lang-btn, .gallery-link-btn {
+            background: transparent;
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 3px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .lang-btn:hover, .gallery-link-btn:hover {
+            background: var(--accent-green);
+            color: #000;
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            position: relative;
+        }
+
+        header h1 {
+            color: var(--text-white);
+            font-size: 2.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 span {
+            color: var(--accent-green);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 1rem auto 3rem;
+            padding: 0 1.2rem;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 850px) {
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cyber-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--dark-border);
+            border-radius: 12px;
+            padding: 1.2rem;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .cyber-card:hover {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+        }
+
+        .card-header {
+            color: var(--accent-green);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--dark-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .card-header::before {
+            content: "//";
+            margin-left: 8px;
+            margin-right: 8px;
+            color: var(--accent-green);
+        }
+
+        .profile-frame {
+            width: 100%;
+            height: 320px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--accent-green);
+            box-shadow: inset 0 0 15px rgba(0, 255, 102, 0.2);
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(10%) contrast(105%);
+        }
+
+        .cards-slider-container {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--dark-border);
+            background: #000;
+        }
+
+        .slider-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slider-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            padding: 8px;
+        }
+
+        .slider-wrapper img.active {
+            opacity: 1;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .slider-btn:hover {
+            background: var(--accent-green);
+            color: #000;
+            box-shadow: 0 0 10px var(--accent-green);
+        }
+
+        html[dir="rtl"] .prev-btn { right: 10px; }
+        html[dir="rtl"] .next-btn { left: 10px; }
+        html[dir="ltr"] .prev-btn { left: 10px; }
+        html[dir="ltr"] .next-btn { right: 10px; }
+
+        .section-title {
+            color: var(--accent-green);
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--dark-border);
+            padding-bottom: 0.6rem;
+        }
+
+        .content-list {
+            list-style: none;
+        }
+
+        .content-list li {
+            position: relative;
+            margin-bottom: 0.9rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        html[dir="rtl"] .content-list li { padding-right: 1.8rem; }
+        html[dir="ltr"] .content-list li { padding-left: 1.8rem; }
+
+        .content-list li::before {
+            content: "❖";
+            position: absolute;
+            color: var(--accent-green);
+            font-size: 0.9rem;
+        }
+
+        html[dir="rtl"] .content-list li::before { right: 0; }
+        html[dir="ltr"] .content-list li::before { left: 0; }
+
+        .content-list strong {
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--panel-bg);
+            border-top: 1px solid var(--dark-border);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 3rem;
+        }
+
+        footer span {
+            color: var(--accent-green);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="system-bar">
+        <div><span class="status-dot"></span> <span id="sys-status">SYSTEM ONLINE | PROFILE</span></div>
+        <div class="nav-actions">
+            <a href="./gallery.html" class="gallery-link-btn" id="gallery-btn-txt">📂 معرض الشهادات والكارنيهات</a>
+            <button class="lang-btn" onclick="toggleLanguage()">EN / عربي</button>
+        </div>
+    </div>
+
+    <header>
+        <h1 id="header-name">المستشار / <span>إبراهيم حسين إبراهيم يوسف</span></h1>
+        <p id="header-sub">مهندس تكنولوجيا معلومات (IT Engineer) - دبي | خبير ومستشار العلاقات الدبلوماسية والتحكيم التجاري الدولي</p>
+    </header>
+
+    <div class="container">
+
+        <div class="media-grid">
+            
+            <div class="cyber-card">
+                <div class="card-header" id="txt-photo-hdr">الصورة الشخصية</div>
+                <div class="profile-frame">
+                    <img src="./WhatsApp Image 2026-10-23 at 6.51.09 AM.jpeg" id="main-profile-img" alt="إبراهيم حسين يوسف">
+                </div>
+            </div>
+
+            <div class="cyber-card">
+                <div class="card-header" id="txt-cards-hdr">سجل الكارنيهات والعضويات المعتمدة</div>
+                <div class="cards-slider-container">
+                    <button class="slider-btn prev-btn" onclick="prevCard()">❮</button>
+                    <button class="slider-btn next-btn" onclick="nextCard()">❯</button>
+                    
+                    <div class="slider-wrapper" id="cardSlider">
+                        <img src="./كارنيه 1.jpg" class="active" alt="كارنيه 1">
+                        <img src="" alt="كارنيه 2">
+                        <img src="https://via.placeholder.com/600x350/080f0c/00ff66?text=Arbitration+Card" alt="كارنيه 3">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cyber-card" style="margin-bottom: 1.8rem;">
+            <h2 class="section-title" id="sec1-title">💼 الخبرة المهنية والتقنية</h2>
+            <ul class="content-list" id="sec1-list">
+                <li><strong>مهندس تكنولوجيا معلومات (IT Engineer):</strong> العمل حالياً في إحدى كبرى الشركات العالمية بمدينة دبي، دولة الإمارات العربية المتحدة.</li>
+                <li><strong>الخبرة الحكومية:</strong> عمل سابقاً كمهندس تكنولوجيا معلومات ودعم فني في <strong>وزارة الاتصالات وتكنولوجيا المعلومات المصرية</strong>.</li>
+                <li><strong>القيادة والتميز الإداري:</strong> إشراف وإدارة فرق العمل والمبيعات والتوريدات مع الترقية والتقدير المؤسسي.</li>
+            </ul>
+        </div>
+
+        <div class="cyber-card" style="margin-bottom: 1.8rem;">
+            <h2 class="section-title" id="sec2-title">🎓 المسيرة الأكاديمية والمهارات الرقمية</h2>
+            <ul class="content-list" id="sec2-list">
+                <li><strong>البكالوريوس:</strong> نظم المعلومات الإدارية - المعهد العالي لنظم التجارة الإلكترونية بسوهاج (تقدير ممتاز/جيد جداً للسنة النهائية، ومُعادل رسمياً من المجلس الأعلى للجامعات).</li>
+                <li><strong>القيادة الأكاديمية:</strong> رئيس فريق مشروع التخرج للسنتين الدراسيتين (الفرقة الثالثة والفرقة الرابعة).</li>
+                <li><strong>الذكاء الاصطناعي والشبكات:</strong> خريج مبادرة "مليون خبير أوامر الذكاء الاصطناعي" من مؤسسة دبي للمستقبل (Dubai Future Foundation)، وشهادة أساسيات شبكات الحاسوب معتمدة من منصة Mahara-Tech التابعة لمعهد (ITI)، بالإضافة لشهادات منصة إدراك المتقدمة.</li>
+            </ul>
+        </div>
+
+        <div class="cyber-card" style="margin-bottom: 1.8rem;">
+            <h2 class="section-title" id="sec3-title">⚖️ العمل الدبلوماسي والتحكيم الدولي</h2>
+            <ul class="content-list" id="sec3-list">
+                <li><strong>اتحاد المحكمين العرب الدوليين:</strong> مستشار علاقات دبلوماسية مسجل بجداول مستشاري العلاقات الدبلوماسية (فئة ج) ومزاول رسمياً للمهنة.</li>
+                <li><strong>مجلس التنمية العربية والتعاون الدولي:</strong> مستشار (فئة ج) بلجنة تقصي الحقائق والدفاع والحريات، وحاصل على وسام التكريم للارتقاء بحقوق الإنسان.</li>
+                <li><strong>مؤسسة القضاء الخاص:</strong> مقيد بلجنة خبراء العلاقات الدبلوماسية والقنصلية في القانون الدولي.</li>
+            </ul>
+        </div>
+
+        <div class="cyber-card">
+            <h2 class="section-title" id="sec4-title">🎖️ الانضباط والنزاهة الوطنية</h2>
+            <ul class="content-list" id="sec4-list">
+                <li><strong>الخدمة العسكرية:</strong> تأدية الخدمة بوزارة الداخلية / القوات المسلحة المصرية بدرجة أخلاق <strong>قدوة حسنة</strong>.</li>
+                <li><strong>الموقف الجنائي:</strong> صحيفة حالة جنائية خالية تماماً من أي أحكام مسجلة صادرة عن وزارة الداخلية.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p id="footer-txt">جميع الحقوق محفوظة © 2026 | <span>المستشار م. إبراهيم حسين إبراهيم يوسف</span></p>
+    </footer>
+
+    <script>
+        let currentLang = 'ar';
+
+        const translations = {
+            ar: {
+                dir: 'rtl',
+                sysStatus: 'SYSTEM ONLINE | PROFILE',
+                galleryBtn: '📂 معرض الشهادات والكارنيهات',
+                headerName: 'المستشار / <span>إبراهيم حسين إبراهيم يوسف</span>',
+                headerSub: 'مهندس تكنولوجيا معلومات (IT Engineer) - دبي | خبير ومستشار العلاقات الدبلوماسية والتحكيم التجاري الدولي',
+                photoHdr: 'الصورة الشخصية',
+                cardsHdr: 'سجل الكارنيهات والعضويات المعتمدة',
+                sec1Title: '💼 الخبرة المهنية والتقنية',
+                sec1List: `
+                    <li><strong>مهندس تكنولوجيا معلومات (IT Engineer):</strong> العمل حالياً في إحدى كبرى الشركات العالمية بمدينة دبي، دولة الإمارات العربية المتحدة.</li>
+                    <li><strong>الخبرة الحكومية:</strong> عمل سابقاً كمهندس تكنولوجيا معلومات ودعم فني في <strong>وزارة الاتصالات وتكنولوجيا المعلومات المصرية</strong>.</li>
+                    <li><strong>القيادة والتميز الإداري:</strong> إشراف وإدارة فرق العمل والمبيعات والتوريدات مع الترقية والتقدير المؤسسي.</li>`,
+                sec2Title: '🎓 المسيرة الأكاديمية والمهارات الرقمية',
+                sec2List: `
+                    <li><strong>البكالوريوس:</strong> نظم المعلومات الإدارية - المعهد العالي لنظم التجارة الإلكترونية بسوهاج (تقدير ممتاز/جيد جداً للسنة النهائية، ومُعادل رسمياً من المجلس الأعلى للجامعات).</li>
+                    <li><strong>القيادة الأكاديمية:</strong> رئيس فريق مشروع التخرج للسنتين الدراسيتين (الفرقة الثالثة والفرقة الرابعة).</li>
+                    <li><strong>الذكاء الاصطناعي والشبكات:</strong> خريج مبادرة "مليون خبير أوامر الذكاء الاصطناعي" من مؤسسة دبي للمستقبل (Dubai Future Foundation)، وشهادة أساسيات شبكات الحاسوب معتمدة من منصة Mahara-Tech التابعة لمعهد (ITI)، بالإضافة لشهادات منصة إدراك المتقدمة.</li>`,
+                sec3Title: '⚖️ العمل الدبلوماسي والتحكيم الدولي',
+                sec3List: `
+                    <li><strong>اتحاد المحكمين العرب الدوليين:</strong> مستشار علاقات دبلوماسية مسجل بجداول مستشاري العلاقات الدبلوماسية (فئة ج) ومزاول رسمياً للمهنة.</li>
+                    <li><strong>مجلس التنمية العربية والتعاون الدولي:</strong> مستشار (فئة ج) بلجنة تقصي الحقائق والدفاع والحريات، وحاصل على وسام التكريم للارتقاء بحقوق الإنسان.</li>
+                    <li><strong>مؤسسة القضاء الخاص:</strong> مقيد بلجنة خبراء العلاقات الدبلوماسية والقنصلية في القانون الدولي.</li>`,
+                sec4Title: '🎖️ الانضباط والنزاهة الوطنية',
+                sec4List: `
+                    <li><strong>الخدمة العسكرية:</strong> تأدية الخدمة بوزارة الداخلية / القوات المسلحة المصرية بدرجة أخلاق <strong>قدوة حسنة</strong>.</li>
+                    <li><strong>الموقف الجنائي:</strong> صحيفة حالة جنائية خالية تماماً من أي أحكام مسجلة صادرة عن وزارة الداخلية.</li>`,
+                footerTxt: 'جميع الحقوق محفوظة © 2026 | <span>المستشار م. إبراهيم حسين إبراهيم يوسف</span>'
+            },
+            en: {
+                dir: 'ltr',
+                sysStatus: 'SYSTEM ONLINE | OFFICIAL PROFILE',
+                galleryBtn: '📂 Certificates & IDs Gallery',
+                headerName: 'Consultant / <span>Ibrahim Hussein Ibrahim Youssef</span>',
+                headerSub: 'IT Engineer - Dubai | Expert & Consultant in Diplomatic Relations and International Commercial Arbitration',
+                photoHdr: 'Personal Photo',
+                cardsHdr: 'Official IDs & Memberships Record',
+                sec1Title: '💼 Professional & Technical Experience',
+                sec1List: `
+                    <li><strong>IT Engineer:</strong> Currently working at a leading international company in Dubai, United Arab Emirates.</li>
+                    <li><strong>Government Experience:</strong> Former IT Engineer and Technical Support Specialist at the <strong>Egyptian Ministry of Communications and Information Technology</strong>.</li>
+                    <li><strong>Leadership & Management:</strong> Supervised and managed work teams, sales, and supplies with official institutional awards and promotions.</li>`,
+                sec2Title: '🎓 Academic Qualifications & Digital Skills',
+                sec2List: `
+                    <li><strong>Bachelor Degree:</strong> Management Information Systems (MIS) - Sohag Higher Institute for E-Commerce Systems (Graduated with Very Good grade in final year, officially accredited by the Supreme Council of Universities).</li>
+                    <li><strong>Academic Leadership:</strong> Head of the Graduation Project Team for two consecutive academic years (3rd and 4th years).</li>
+                    <li><strong>Artificial Intelligence & Networking:</strong> Graduate of the "1 Million Prompts" AI Initiative by Dubai Future Foundation, certified in Computer Network Fundamentals by Mahara-Tech (ITI), and advanced certifications from Edraak.</li>`,
+                sec3Title: '⚖️ Diplomatic & International Arbitration Work',
+                sec3List: `
+                    <li><strong>International Arab Arbitrators Union:</strong> Registered Diplomatic Relations Consultant (Category C) with an official license to practice.</li>
+                    <li><strong>Arab Development Council & International Cooperation:</strong> Consultant (Category C) in the Fact-Finding, Defense & Liberties Committee, awarded the Honor Medal for Human Rights advancement.</li>
+                    <li><strong>Private Judiciary Foundation:</strong> Registered in the Committee of Diplomatic & Consular Relations Experts in International Law.</li>`,
+                sec4Title: '🎖️ National Discipline & Integrity',
+                sec4List: `
+                    <li><strong>Military Service:</strong> Served in the Egyptian Ministry of Interior / Armed Forces with the highest moral rating (<strong>Exemplary Conduct</strong>).</li>
+                    <li><strong>Legal Clearance:</strong> Official criminal record clearance certificate with zero criminal offenses issued by the Ministry of Interior.</li>`,
+                footerTxt: 'All Rights Reserved © 2026 | <span>Consultant Eng. Ibrahim Hussein Ibrahim Youssef</span>'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const langData = translations[currentLang];
+
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = langData.dir;
+
+            document.getElementById('sys-status').innerText = langData.sysStatus;
+            document.getElementById('gallery-btn-txt').innerText = langData.galleryBtn;
+            document.getElementById('header-name').innerHTML = langData.headerName;
+            document.getElementById('header-sub').innerText = langData.headerSub;
+            document.getElementById('txt-photo-hdr').innerText = langData.photoHdr;
+            document.getElementById('txt-cards-hdr').innerText = langData.cardsHdr;
+
+            document.getElementById('sec1-title').innerHTML = langData.sec1Title;
+            document.getElementById('sec1-list').innerHTML = langData.sec1List;
+
+            document.getElementById('sec2-title').innerHTML = langData.sec2Title;
+            document.getElementById('sec2-list').innerHTML = langData.sec2List;
+
+            document.getElementById('sec3-title').innerHTML = langData.sec3Title;
+            document.getElementById('sec3-list').innerHTML = langData.sec3List;
+
+            document.getElementById('sec4-title').innerHTML = langData.sec4Title;
+            document.getElementById('sec4-list').innerHTML = langData.sec4List;
+
+            document.getElementById('footer-txt').innerHTML = langData.footerTxt;
+        }
+
+        const cardImages = document.querySelectorAll('#cardSlider img');
+        let currentCardIndex = 0;
+
+        function showCard(index) {
+            cardImages.forEach(img => img.classList.remove('active'));
+            currentCardIndex = (index + cardImages.length) % cardImages.length;
+            cardImages[currentCardIndex].classList.add('active');
+        }
+
+        function nextCard() {
+            showCard(currentCardIndex + 1);
+        }
+
+        function prevCard() {
+            showCard(currentCardIndex - 1);
+        }
+
+        setInterval(nextCard, 4000);
+    </script>
+</body>
+</html>
